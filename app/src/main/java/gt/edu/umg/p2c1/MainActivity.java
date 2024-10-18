@@ -1,6 +1,7 @@
 package gt.edu.umg.p2c1;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
@@ -40,19 +41,19 @@ public class MainActivity extends AppCompatActivity {
             tvSaludo.setText("Hola Blanky");
         });
 
-        //crear db
+
         btnCrearDb.setOnClickListener(v -> {
-            //crear base de datos
+            // Mostrar mensaje de éxito
+            Toast.makeText(this, "Base de datos creada", Toast.LENGTH_SHORT).show();
+            tvSaludo.setText("Base de datos creada");
+
+            // Crear base de datos
             DbHelper dbHelper = new DbHelper(this);
             dbHelper.getWritableDatabase();
-            SQLiteDatabase db = dbHelper.getWritableDatabase();
-            if (db != null){
-                Toast.makeText(this, "Base de datos creada", Toast.LENGTH_SHORT).show();
-                tvSaludo.setText("Base de datos creada");
-            } else {
-                Toast.makeText(this, "Error al crear base de datos", Toast.LENGTH_SHORT).show();
-                tvSaludo.setText("Error al crear base de datos");
-            }
+
+            // Iniciar la nueva activity
+            Intent intent = new Intent(this, NuevoActivity.class);
+            startActivity(intent);
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

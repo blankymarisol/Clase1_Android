@@ -37,4 +37,10 @@
         android:layout_height="wrap_content"
         android:text="@string/btnGuardar" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BLANKY MARISOL LOPEZ MARROQUIN 0905-23-5227" />
+
 </LinearLayout>
