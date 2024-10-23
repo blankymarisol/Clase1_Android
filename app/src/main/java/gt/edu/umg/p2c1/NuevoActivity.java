@@ -1,6 +1,8 @@
 package gt.edu.umg.p2c1;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,7 +18,7 @@ import gt.edu.umg.p2c1.BaseDatos.DbContactos;
 public class NuevoActivity extends AppCompatActivity {
 
     EditText txtNombre, txtTelefono, txtEmail;
-    Button btnGuardar;
+    Button btnGuardar, btnRegresar;
     DbContactos dbContactos;
 
     @Override
@@ -29,6 +31,7 @@ public class NuevoActivity extends AppCompatActivity {
         txtTelefono = findViewById(R.id.txtTelefono);
         txtEmail = findViewById(R.id.txtEmail);
         btnGuardar = findViewById(R.id.btnGuardar);
+        btnRegresar = findViewById(R.id.btnRegresar);
 
         //inicializar la base de datos
         dbContactos = new DbContactos(this);
@@ -51,6 +54,16 @@ public class NuevoActivity extends AppCompatActivity {
                 txtEmail.setText("");
             } else {
                 Toast.makeText(this,"Error al guardar contacto", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        btnRegresar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(NuevoActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

@@ -40,4 +40,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp" />
 
+    <Button
+        android:id="@+id/btnGps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Obtener Ubicacion"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="394dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
